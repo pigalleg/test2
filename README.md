@@ -23,11 +23,10 @@ The Aggregator code must run in any debian based platform while client was teste
 ### Software requirements
 
 
-## Getting started
-
-cxcx
+## Initiating connections
+Connection to aggregator and client is done via SSH protocol. Using 
 ### Aggregator and Cliend activation
-1. Copy "library" to both aggregator and client sistems.
+1. Copy "library" to both aggregator and client systems.
 2. Activate aggregator script "route-to-library/aggregator.py".
 3. Activate client script "route-to-library/home.py"
 
