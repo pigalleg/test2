@@ -50,8 +50,23 @@ $ python route-to-library/aggregator.py
 ```
 Aggregator script will start monitoring incoming connection from clients. If at least one connection is started, aggregator and client will start interchanging DR signals over TCP protocol. 
 
-3. Activate client script "route-to-library/home.py". For reasons that will be clarified after, this script must be started using `sudo`privileges. 
+3. Activate client script "route-to-library/home.py". For reasons that will be clarified after, this script must be started using `sudo` privileges. 
 ```
 $ sudo python route-to-library/homer.py
 ```
-Client will connect to aggregator's public addres (ocm-server.ing.puc.cl). In paralel, it monitores incoming connections from locals actuators. If at least one connection with actuators is ed, client will start sending local control signals to the actuator.
+Client will connect to aggregator's public addres (ocm-server.ing.puc.cl). In paralel, it monitores incoming connections from locals actuators. If at least one connection with actuators is enabled, client will start sending local control signals to the actuators via TCP (WIfi) and/or ZigBee.
+
+# Code Explanation
+In the following, I will explain briefly how the whole code for the aggretor and clients works. Particularly, description of principal python libraries will be provided.
+Code enabling aggergator and client monitoring is located in the library folder, wich is divided in the following structure:
+- Libraries
+  - DRManagement: contains all the energy management routines (local load monitoring and control, remote client monitoring and negociation,etc.)
+    - EnergyManagement.py
+  - Communication: manages all communication procedures between every agent in the DR architecture.
+    - linkage.py
+    - technology.py
+  - Optimization: performs optimal load allocation
+    - Model.py
+  - aggregator.py
+  - home.py
+
