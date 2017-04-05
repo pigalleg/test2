@@ -15,7 +15,7 @@ For local load control, connectivity between client and load must be assured by
 * WiFi (802.11) and/or
 * ZigBee
 
-This means that WiFi and/or ZigBee connection must be pre-configured after local load controlling. This projects assumes (but will guide you also) in how to set ZigBee connectivity. WiFi connectivity will not be explained extensively.
+This means that WiFi and/or ZigBee connection must be pre-configured after local load controlling. This projects assumes (but will guide you through the steps to set) ZigBee connectivity. WiFi connectivity will not be explained extensively.
 
 ### Hardware requiriments
 The Aggregator code must run in any debian based platform while client was tested in a BeagleBone Black minicomputer. Actuators were running in a Arduino One and in a Photon device. Here's a little resume  showing the used hardware:
@@ -56,17 +56,5 @@ $ sudo python route-to-library/homer.py
 ```
 Client will connect to aggregator's public addres (ocm-server.ing.puc.cl). In paralel, it monitores incoming connections from locals actuators. If at least one connection with actuators is enabled, client will start sending local control signals to the actuators via TCP (WIfi) and/or ZigBee.
 
-# Code Explanation
-In the following, I will explain briefly how the whole code for the aggretor and clients works. Particularly, description of principal python libraries will be provided.
-Code enabling aggergator and client monitoring is located in the library folder, wich is divided in the following structure:
-- Libraries
-  - DRManagement: contains all the energy management routines (local load monitoring and control, remote client monitoring and negociation,etc.)
-    - EnergyManagement.py
-  - Communication: manages all communication procedures between every agent in the DR architecture.
-    - linkage.py
-    - technology.py
-  - Optimization: performs optimal load allocation
-    - Model.py
-  - aggregator.py
-  - home.py
+
 
